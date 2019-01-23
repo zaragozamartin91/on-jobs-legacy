@@ -1,0 +1,52 @@
+﻿Argentina Destacados (Medium) 40 
+Argentina Destacados (Medium Unlimited) 700 
+Argentina Estandar 70
+Argentina Membresia Estandar 70
+
+Bolivia Destacados (Medium) 40
+Bolivia Destacados (Medium Unlimited) 700
+Bolivia Estandar 70
+
+Chile Home 20
+Chile Destacados (Medium) 50
+Chile Estandar 70
+Chile Membresía Estandar 70
+
+Colombia Destacados (Medium) 50
+Colombia Destacados (Medium Unlimited) 720
+Colombia Estandar 80
+
+Ecuador Destacado (Medium) 480
+Ecuador Destacado (Medium Unlimited) 710
+Ecuador Membresia Estandar 490
+
+Peru Destacados (Medium) 50
+Peru Destacados (Medium Unlimited) 720
+Peru Estandar 80
+Peru Membresia Estandar 70
+
+Uruguay Destacados (Medium) 30
+Uruguay Estandar 80
+
+Venezuela Destacados (Medium) 60
+Venezuela Destacados (Medium Unlimited) 710
+Venezuela Estandar 80
+Venezuela Membresia Estandar 80
+
+Costa Rica Destacados (Medium) 40
+Costa Rica Destacados (Medium Unlimited) 700
+Costa Rica Estandar 80
+
+Mexico Destacados (Medium) 60
+Mexico Destacados (Medium Unlimited) 710
+Mexico Estandar 80
+Mexico Membresia Estandar 80
+
+Panama Destacados (Medium) 60
+Panama Destacados (Medium Unlimited) 710
+Panama Estandar 80
+Panama Membresia Estandar 80
+
+Republica Dominicana Destacados (Medium) 40
+Republica Dominicana Destacados (Medium Unlimited) 700
+Republica Dominicana Estandar 80

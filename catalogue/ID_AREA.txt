@@ -1,0 +1,167 @@
+82	Abastecimiento
+22	Administración
+2617	Administración de Base de Datos
+2637	Administración de Personal
+2552	Administracion de Seguros
+2638	Almacén / Depósito / Expedición
+2598	Análisis de Riesgos
+2618	Análisis Funcional
+96	Apoderado Aduanal
+2330	Arquitectura
+2604	Arte y Cultura
+97	Asesoría Legal Internacional
+2572	Asistente
+98	Asistente de Tráfico
+2571	Atención al Cliente
+83	Auditoría
+2555	Auditoría de Seguros
+2605	Back Office
+2561	Bienestar Estudiantil
+2639	Bioquímica
+2600	Business Intelligence
+2606	Cadetería
+2607	Caja
+84	Calidad
+110	Call Center
+2641	Camareros
+2566	Capacitación
+99	Capacitación Comercio Exterior
+2562	Casinos
+23	Comercial
+85	Comercio Exterior
+2564	Community Management
+2567	Compensación y Planilla
+56	Compras
+100	Compras Internacionales/Importación
+80	Comunicacion
+87	Comunicaciones Externas
+86	Comunicaciones Internas
+2390	Construcción
+57	Consultoria
+101	Consultorías Comercio Exterior
+58	Contabilidad
+88	Control de Gestión
+2599	Corporate Finance / Banca Inversión
+52	Creatividad
+2592	Créditos y Cobranzas
+2593	Cuentas Corrientes
+2608	Data Entry
+2620	Data Warehousing
+2628	Desarrollo de Negocios
+2530	Dirección
+2642	Dirección de Obra
+24	Diseño
+2586	Diseño de Interiores / Decoración
+2587	Diseño Gráfico
+2588	Diseño Industrial
+2589	Diseño Multimedia
+2590	Diseño Textil e Indumentaria
+2591	Diseño Web
+54	Distribución
+89	E-commerce
+120	Educación
+2550	Educación especial
+2560	Educación/ Docentes
+2627	Estética y Cuidado Personal
+2594	Evaluación Económica
+2575	Exploración Minera y Petroquimica
+2643	Facturación
+2569	Farmacéutica
+25	Finanzas
+102	Finanzas Internacionales
+2350	Gastronomia
+94	Gerencia / Dirección General
+2400	Hotelería
+2540	Idiomas
+90	Impuestos
+2603	Independientes
+2625	Infraestructura
+2578	Ingeniería  Automotriz
+2579	Ingeniería  Eléctrica y Electrónica
+2582	Ingeniería  Industrial
+2581	Ingeniería  Mecánica
+2583	Ingeniería  Metalurgica
+2580	Ingeniería  Textil
+2636	Ingeniería Agrónoma
+2558	Ingeniería Civil
+2630	Ingeniería de Procesos
+2631	Ingeniería de Producto
+2632	Ingeniería de Ventas
+2633	Ingeniería Electromecánica
+2634	Ingeniería en Alimentos
+2574	Ingeniería en Minas
+2573	Ingeniería en Petróleo y Petroquímica
+2577	Ingeniería Geológica
+2635	Ingeniería Oficina Técnica / Proyecto
+2584	Ingeniería Química
+2557	Instrumentación
+2576	Instrumentación Minera
+26	Internet
+2595	Inversiones / Proyectos de Inversión
+27	Investigación y Desarrollo
+55	Jóvenes Profesionales
+2520	Laboratorio
+28	Legal
+2619	Liderazgo de Proyecto
+29	Logística
+70	Mantenimiento
+2609	Mantenimiento y Limpieza
+30	Marketing
+2563	Media Planning
+2570	Médicina
+91	Medio Ambiente
+104	Mercadotecnia Internacional
+2430	Mineria/Petroleo/Gas
+53	Multimedia
+2559	Negocios Internacionales
+2610	Oficios y Profesiones
+2500	Operaciones
+2585	Organización y Métodos
+59	Otras Ingenierias
+36	Otros
+2644	Pasantía / Trainee
+81	Periodismo
+92	Planeamiento
+2629	Planeamiento comercial
+2596	Planeamiento económico-financiero
+31	Prácticas Profesionales
+32	Producción
+2601	Producto
+2621	Programación
+2602	Programación de producción
+2611	Promotoras/es
+2640	Química
+2380	Recepcionista
+48	Recursos Humanos
+2622	Redes
+60	Relaciones Institucionales/Publicas
+2568	Responsabilidad Social
+93	Salud
+2370	Secretaria
+2612	Seguridad
+61	Seguridad Industrial
+2623	Seguridad Informática
+2410	Seguros
+2565	Selección
+150	Servicios
+2624	Sistemas
+108	Soporte Técnico
+2554	Tecnico de Seguros
+34	Tecnologia / Sistemas
+105	Tecnologías de la Información
+107	Telecomunicaciones
+2615	Telefonista
+106	Telemarketing
+2597	Tesorería
+2626	Testing / QA / QC
+2556	Topografía
+2613	Trabajo Social
+111	Traduccion
+2614	Transporte
+109	Transporte
+2360	Turismo
+2340	Urbanismo
+2553	Venta de Seguros
+35	Ventas
+95	Ventas Internacionales/Exportación
+2616	Veterinaria

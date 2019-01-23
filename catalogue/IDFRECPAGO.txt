@@ -1,0 +1,6 @@
+'1' => 'por Hora', 'by hour'
+'2' => 'por Día', 'by day'
+'3' => 'por Semana', 'by week'
+'6' => 'por Quincena', 'by fortnight'
+'4' => 'por Mes', 'by month'
+'5' => 'por Año', 'by year'

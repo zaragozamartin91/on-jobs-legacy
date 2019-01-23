@@ -1,14 +1,68 @@
 package com.on.jobs.publica.sbe;
 
+import com.mz.client.http.SimpleHttpClient;
 import com.on.jobs.publica.SpringIntegrationTest;
 import cucumber.api.PendingException;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
+import cucumber.deps.com.thoughtworks.xstream.InitializationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
+    private static final String URL = "http://www.bumeran.com.mx/api/publicador/index.bum";
+
+    private static final XPath xpath = XPathFactory.newInstance().newXPath();
+
+    // TODO : insertar id y token de empresa existente (SoftwareGZ)
+    private static final String OK_COMPANY_ID = "000001"; // id de empresa existente
+    private static final String OK_COMPANY_TOKEN = "h5yfg875djgyu78"; // token valido de empresa existente
+
+    // NOTA: LOS CATALOGOS SON ARCHIVOS!!!
+    // TODO : insertar id de producto valido
+    /* Este codigo se debe tomar del catalogo "IDPLANPUBLICACION" de acuerdo al tipo de membresia y pais contratado. */
+    private static final String OK_PRODUCT_ID = "60";
+
+
+    private Document buildDocument() {
+        File xmlFile = new File("test_files", "ejemplo_aviso.xml");
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            return dBuilder.parse(xmlFile);
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            throw new IllegalStateException("Error al parsear documento " + xmlFile.getAbsolutePath(), e);
+        }
+    }
+
+
+    private Document document;
+
+
+    private Element getDocumentElement() {
+        /* TODO : analizar si es necesario normalizar el documento antes de enviarlo */
+        //        documentElement.normalize();
+        return document.getDocumentElement();
+    }
+
+    private Element getElement(String path) {
+        try {
+            XPathExpression expression = xpath.compile(path);
+            return (Element) expression.evaluate(getDocumentElement(), XPathConstants.NODE);
+        } catch (XPathExpressionException e) {
+            throw new IllegalArgumentException("Expresion " + path + " invalida", e);
+        }
+    }
 
     /**
      * Una empresa habilitada para integrar es aquella que tiene un idempresa y un token necesarios para la creacion y publicacion de avisos.
@@ -21,28 +75,38 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
      */
     @Dado("una empresa habilitada para integrar")
     public void una_empresa_habilitada_para_integrar() {
-        throw new PendingException();
+        document = buildDocument();
+
+        Element dataElement = getElement("/Avisos/aviso/DatosAdicionales");
+        dataElement.setAttribute("emp_idempresa", OK_COMPANY_ID);
+        dataElement.setAttribute("emp_token", OK_COMPANY_TOKEN);
     }
 
 
     @Dado("que tiene creditos suficientes para publicar avisos")
     public void que_tiene_creditos_suficientes_para_publicar_avisos() {
-        throw new PendingException();
+        Element productElement = getElement("/Avisos/aviso/idPlanPublicacion");
+        productElement.setTextContent(OK_PRODUCT_ID);
     }
 
 
     @Dado("un formulario de aviso con sus campos requeridos completados correctamente")
     public void un_formulario_de_aviso_con_sus_campos_requeridos_completados_correctamente() throws IOException, URISyntaxException {
-        throw new PendingException();
+        // TODO : EDITAR CAMPOS DEL XML QUE DEBAN SER MODIFICADOS
     }
 
     @Dado("un codigoAviso unico para dicho integrador")
     public void un_codigoAviso_unico_para_dicho_integrador() {
-        throw new PendingException();
+        Element element = getElement("txCodigoReferencia");
+        // TODO : revisar si txCodigoReferencia es el codigo-aviso
+        element.setTextContent("63797");
     }
+
 
     @Entonces("se crea y se publica el aviso")
     public void se_crea_y_se_publica_el_aviso() throws Exception {
+        //   POST   http://www.bumeran.com.mx/api/publicador/index.bum
+        SimpleHttpClient.newPost(URL).withContentType()
         throw new PendingException();
     }
 

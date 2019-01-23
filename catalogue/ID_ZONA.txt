@@ -1,0 +1,256 @@
+2	Capital Federal	Argentina
+3	Jujuy	Argentina
+4	Salta	Argentina
+6	Chaco	Argentina
+7	Tucuman	Argentina
+8	Catamarca	Argentina
+9	Santiago del Estero	Argentina
+10	Misiones	Argentina
+11	Corrientes	Argentina
+12	La Rioja	Argentina
+13	Cordoba	Argentina
+14	Santa Fe	Argentina
+15	Entre Rios	Argentina
+16	San Juan	Argentina
+17	Mendoza	Argentina
+19	San Luis	Argentina
+20	Neuquen	Argentina
+22	Chubut	Argentina
+24	Tierra del Fuego	Argentina
+25	Rosario	Argentina
+26	La Plata	Argentina
+27	Mar del Plata	Argentina
+28	Bahia Blanca	Argentina
+29	Ciudad de Cordoba	Argentina
+30	Ciudad de Mendoza	Argentina
+31	Ciudad de Santa Fe	Argentina
+66	Buenos Aires (fuera de GBA)	Argentina
+1490	GBA Sur	Argentina
+1500	GBA Norte	Argentina
+1510	GBA Oeste	Argentina
+1	Gran Buenos Aires	Argentina
+21	Rio Negro	Argentina
+23	Santa Cruz	Argentina
+5	Formosa	Argentina
+18	La Pampa	Argentina
+67	Region I	Chile
+68	Region II	Chile
+69	Region III	Chile
+70	Region IV	Chile
+71	Region V	Chile
+72	Region VI	Chile
+73	Region VII	Chile
+74	Region VIII	Chile
+75	Region IX	Chile
+76	Region X	Chile
+77	Region Metropolitana	Chile
+78	Region XI	Chile
+79	Region XII	Chile
+1951	Region XV	Chile
+1952	Region XIV	Chile
+602	Amazonas	Colombia
+603	Antioquia	Colombia
+604	Arauca	Colombia
+605	Atlantico	Colombia
+606	Bolivar	Colombia
+607	Boyaca	Colombia
+608	Caldas	Colombia
+609	Caqueta	Colombia
+610	Casanare	Colombia
+611	Cauca	Colombia
+612	Cesar	Colombia
+613	Choco	Colombia
+614	Cordoba	Colombia
+615	Cundinamarca	Colombia
+616	Guainia	Colombia
+617	Guaviare	Colombia
+618	Huila	Colombia
+619	La Guajira	Colombia
+620	Magdalena	Colombia
+621	Meta	Colombia
+622	Narino	Colombia
+623	Norte de Santander	Colombia
+624	Putumayo	Colombia
+625	Quindio	Colombia
+626	Risaralda	Colombia
+627	San Andres y Providencia	Colombia
+628	Santander	Colombia
+629	Sucre	Colombia
+630	Tolima	Colombia
+631	Valle del Cauca	Colombia
+632	Vaupes	Colombia
+633	Vichada	Colombia
+1980	Bogota	Colombia
+458	Alajuela	Costa Rica
+459	Cartago	Costa Rica
+460	Guanacaste	Costa Rica
+461	Heredia	Costa Rica
+462	Limon	Costa Rica
+463	Puntarenas	Costa Rica
+464	San Jose	Costa Rica
+1960	Santa Elena	Ecuador
+1961	Santo Domingo de los Tsachilas	Ecuador
+1740	Azuay	Ecuador
+1750	Bolivar	Ecuador
+1760	Ca?ar	Ecuador
+1770	Carchi	Ecuador
+1780	Chimborazo	Ecuador
+1790	Cotopaxi	Ecuador
+1800	El Oro	Ecuador
+1810	Esmeraldas	Ecuador
+1820	Galapagos	Ecuador
+1830	Guayas	Ecuador
+1840	Imbabura	Ecuador
+1850	Loja	Ecuador
+1860	Los Rios	Ecuador
+1870	Manabi	Ecuador
+1880	Morona Santiago	Ecuador
+1890	Napo	Ecuador
+1900	Orellana	Ecuador
+1910	Pastaza	Ecuador
+1920	Pichincha	Ecuador
+1930	Sucumbios	Ecuador
+1940	Tungurahua	Ecuador
+1950	Zamora Chinchipe	Ecuador
+32	Baja California Norte	Mexico
+33	Baja California Sur	Mexico
+34	Campeche	Mexico
+35	Chiapas	Mexico
+36	Chihuahua	Mexico
+37	Coahuila	Mexico
+38	Colima	Mexico
+40	Durango	Mexico
+41	Guanajuato	Mexico
+42	Guerrero	Mexico
+43	Hidalgo	Mexico
+44	Jalisco	Mexico
+45	Estado de Mexico	Mexico
+46	Michoacan	Mexico
+47	Morelos	Mexico
+48	Nayarit	Mexico
+49	Nuevo Leon	Mexico
+50	Oaxaca	Mexico
+51	Puebla	Mexico
+52	Queretaro	Mexico
+53	Quintana Roo	Mexico
+54	San Luis Potosi	Mexico
+56	Sonora	Mexico
+57	Tabasco	Mexico
+58	Tamaulipas	Mexico
+60	Veracruz	Mexico
+61	Yucatan	Mexico
+63	Aguascalientes	Mexico
+39	Distrito Federal	Mexico
+55	Sinaloa	Mexico
+59	Tlaxcala	Mexico
+62	Zacatecas	Mexico
+1970	Todas las zonas	Mexico
+544	Bocas del Toro	Panama
+545	Chiriqui	Panama
+546	Cocle	Panama
+547	Colon	Panama
+548	Darien	Panama
+549	Herrera	Panama
+550	Los Santos	Panama
+551	Panama	Panama
+552	San Blas	Panama
+446	Todas	Paraguay
+411	Ancash	Peru
+412	Arequipa	Peru
+421	Callao	Peru
+422	Cusco	Peru
+423	Huancavelica	Peru
+426	La Libertad	Peru
+427	Lambayeque	Peru
+429	Loreto	Peru
+430	Madre de Dios	Peru
+431	Piura	Peru
+432	Puna	Peru
+433	San Martin	Peru
+434	Tacna	Peru
+435	Amazonas	Peru
+438	Ayacucho	Peru
+440	Huanuco	Peru
+441	Moquegua	Peru
+444	Ucayali	Peru
+428	Lima	Peru
+437	Apurimac	Peru
+439	Cajamarca	Peru
+424	Ica	Peru
+425	Junin	Peru
+442	Pasco	Peru
+443	Tumbes	Peru
+553	Azua	Republica Dominicana
+554	Baoruco	Republica Dominicana
+555	Barahona	Republica Dominicana
+556	Dajabon	Republica Dominicana
+557	Duarte	Republica Dominicana
+558	El Seibo	Republica Dominicana
+559	Elias Pina	Republica Dominicana
+560	Espaillat	Republica Dominicana
+561	Hato Mayor	Republica Dominicana
+562	Independencia	Republica Dominicana
+563	La Altagracia	Republica Dominicana
+564	La Romana	Republica Dominicana
+565	La Vega	Republica Dominicana
+566	Maria Trinidad Sanchez	Republica Dominicana
+567	Monse?or Nouel	Republica Dominicana
+568	Monte Cristi	Republica Dominicana
+569	Monte Plata	Republica Dominicana
+570	Pedernales	Republica Dominicana
+571	Peravia	Republica Dominicana
+572	Puerto Plata	Republica Dominicana
+573	Salcedo	Republica Dominicana
+574	Samana	Republica Dominicana
+575	San Cristobal	Republica Dominicana
+576	San Juan	Republica Dominicana
+577	San Pedro de Macoris	Republica Dominicana
+578	Sanchez Ramirez	Republica Dominicana
+579	Santiago	Republica Dominicana
+580	Santiago Rodriguez	Republica Dominicana
+581	Valverde	Republica Dominicana
+582	Distrito Nacional	Republica Dominicana
+583	Artigas	Uruguay
+584	Canelones	Uruguay
+585	Cerro Largo	Uruguay
+586	Colonia	Uruguay
+587	Durazno	Uruguay
+588	Flores	Uruguay
+589	Florida	Uruguay
+590	Lavalleja	Uruguay
+591	Maldonado	Uruguay
+592	Montevideo	Uruguay
+593	Paysandu	Uruguay
+594	Rio Negro	Uruguay
+595	Rivera	Uruguay
+596	Rocha	Uruguay
+597	Salto	Uruguay
+598	San Jose	Uruguay
+599	Soriano	Uruguay
+600	Tacuarembo	Uruguay
+601	Treinta y Tres	Uruguay
+110	Anzoategui	Venezuela
+120	Aragua	Venezuela
+130	Barinas	Venezuela
+140	Bolivar	Venezuela
+150	Carabobo	Venezuela
+160	Distrito Capital	Venezuela
+170	Falcon	Venezuela
+180	Lara	Venezuela
+200	Miranda	Venezuela
+210	Monagas	Venezuela
+220	Nueva Esparta	Venezuela
+230	Portuguesa	Venezuela
+240	Sucre	Venezuela
+260	Trujillo	Venezuela
+280	Yaracuy	Venezuela
+290	Zulia	Venezuela
+310	Delta Amacuro	Venezuela
+320	Apure	Venezuela
+637	Todo el Pais	Venezuela
+270	Vargas	Venezuela
+250	Tachira	Venezuela
+190	Merida	Venezuela
+330	Guarico	Venezuela
+300	Amazonas	Venezuela
+1400	Cojedes	Venezuela
