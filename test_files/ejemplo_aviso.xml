@@ -3,26 +3,27 @@
     <aviso>
         <DatosAdicionales emp_idempresa="000000" emp_token="h5yfg875djgyu78"/>
         <txAccion>CREAR</txAccion>
-        <idPlanPublicacion>60</idPlanPublicacion> <!--Mexico Destacados (Medium)-->
+        <idPlanPublicacion>60</idPlanPublicacion>
         <txAviso2Url>http://track.tmpservice.com/ApplyClick.aspx?id=877372-2667-8641</txAviso2Url>
         <txCodigoReferencia>63797</txCodigoReferencia>
-        <idPais>18</idPais> <!--mexico-->
-        <idArea>150</idArea> <!--Servicios-->
-        <idTipoTrabajo>2</idTipoTrabajo> <!--Full-time-->
+        <idPais>18</idPais>
+        <idArea>150</idArea>
+        <idTipoTrabajo>2</idTipoTrabajo>
         <minSalario>100</minSalario>
         <maxSalario>1000</maxSalario>
         <netoBruto>N</netoBruto>
-        <idFrecuenciaDePago>4</idFrecuenciaDePago> <!--por Mes-->
-        <txPuesto>Cajero /a Unico /a Eventual</txPuesto>
-        <idIndustria>9</idIndustria> <!--Banca / Financiera-->
-        <txDescripcion><![CDATA[<p>Si te interesa formar parte de un equipo de trabajo agradable, te invitamos a integrarte a Empresa S.A.</p><p>Serás responsable de trabajar en un ambiente organizado, creando una excelente experiencia para el cliente, maximizando las oportunidades para promover nuestros servicios y productos financieros.</p><p>Nuestro Grupo tiene un fuerte compromiso en promover un lugar de trabajo en donde te sientas respaldado por tus supervisores, de forma tal que asegures tu éxito y el de nuestros clientes.</p><p>Contamos con un staff que genera un ambiente de trabajo positivo que aumenta el desarrollo, el trabajo en equipo y la diversidad. Nuestro dinámico equipo invertirá en tu crecimiento mediante coaching y estableciendo un plan de carrera.</p><p>Funciones:</p><p>Proveer la atención en productos y servicios financieros en ventanilla, a través de una buena atención al cliente y trabajo en equipo.</p><p>Realizar todas las operaciones derivadas de los productos y servicios establecidos por la Institución, generados por ventanilla, de acuerdo a lo señalado en las políticas, procedimientos y disposiciones legales.</p><p>Competencias: </p><p>Orientación a resultados,<br/> Trabajo en equipo<br/>Alto grado de responsabilidad y compromiso<br/>Actitud de servicio<br/>Trabajo bajo presión<br/>Atención al cliente<br/>Atención a detalles<br/>Solución de problemas y toma de decisiones<br/>Habilidad demostrada para Cálculos numéricos</p><p>Educación y Acreditaciones:</p><p>- Bachillerato concluído (certificado)<br/>- Recién egresados/as y/o estudiantes de licenciaturas en el área económica administrativas.</p><p>Otra información:</p><p>Disponibilidad de tiempo completo de lunes a viernes de 8:30 a 18:00 hrs. y Sábados medio día (8:30 HRS a 15:00 HRS)</p><p>Ofrecemos prestaciones Bancarias.</p><p>Empresa S.A. esta considerado como el mejor grupo financiero para trabajar en México y con presencia Internacional. </p>
-<p>**Empresa S.A. es una empresa incluyente, que respeta la diversidad y no hace ningún tipo de discriminación**<br/><br/></p>]]></txDescripcion>
+        <idFrecuenciaDePago>4</idFrecuenciaDePago>
+        <txPuesto>Cajero Unico a Eventual</txPuesto>
+        <idIndustria>9</idIndustria>
+        <txDescripcion>
+            <![CDATA[<p>DESCRIPCION DE AVISO</p>]]>
+        </txDescripcion>
         <numCantidadVacantes>1</numCantidadVacantes>
         <txAgradecimiento/>
         <idSexo/>
         <numApareceEmpresa>1</numApareceEmpresa>
         <txNombreAlternativoEmpresa/>
         <txCiudad>Zihuatanejo</txCiudad>
-        <idZona>42</idZona> <!--Guerrero-->
+        <idZona>42</idZona>
     </aviso>
 </Avisos>

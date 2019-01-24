@@ -1,6 +1,7 @@
 package com.on.jobs.publica.sbe;
 
 import com.mz.client.http.SimpleHttpClient;
+import com.mz.client.http.SimpleHttpResponse;
 import com.on.jobs.publica.SpringIntegrationTest;
 import cucumber.api.PendingException;
 import cucumber.api.java.es.Dado;
@@ -14,13 +15,22 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import javax.xml.xpath.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.net.URISyntaxException;
+import java.net.URLEncoder;
 
 public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
-    private static final String URL = "http://www.bumeran.com.mx/api/publicador/index.bum";
+//    private static final String URL = "http://www.bumeran.com.ar/api/publicador/index.bum";
+    private static final String URL = "https://www.bumeran.com.ar/api/publicador/index.bum";
 
     private static final XPath xpath = XPathFactory.newInstance().newXPath();
 
@@ -32,6 +42,21 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
     // TODO : insertar id de producto valido
     /* Este codigo se debe tomar del catalogo "IDPLANPUBLICACION" de acuerdo al tipo de membresia y pais contratado. */
     private static final String OK_PRODUCT_ID = "60";
+    public static final String CHARSET = "UTF-8";
+
+    private String docToString(Document document) {
+        try {
+            TransformerFactory tf = TransformerFactory.newInstance();
+            Transformer transformer = tf.newTransformer();
+            transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes");
+            StringWriter writer = new StringWriter();
+            transformer.transform(new DOMSource(document), new StreamResult(writer));
+
+            return writer.getBuffer().toString();
+        } catch (TransformerException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     private Document buildDocument() {
@@ -97,7 +122,7 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
 
     @Dado("un codigoAviso unico para dicho integrador")
     public void un_codigoAviso_unico_para_dicho_integrador() {
-        Element element = getElement("txCodigoReferencia");
+        Element element = getElement("/Avisos/aviso/txCodigoReferencia");
         // TODO : revisar si txCodigoReferencia es el codigo-aviso
         element.setTextContent("63797");
     }
@@ -106,8 +131,19 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
     @Entonces("se crea y se publica el aviso")
     public void se_crea_y_se_publica_el_aviso() throws Exception {
         //   POST   http://www.bumeran.com.mx/api/publicador/index.bum
-        SimpleHttpClient.newPost(URL).withContentType()
-        throw new PendingException();
+
+        String body = "XML=" + URLEncoder.encode(docToString(document), CHARSET);
+
+        SimpleHttpResponse response = SimpleHttpClient.newPost(URL)
+                .withHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
+                .withHeader("Accept-Language", "en-US,en;q=0.5")
+                .withHeader("Accept-Encoding", "gzip, deflate, br")
+                .withContentType("application/x-www-form-urlencoded")
+                .withBody(body)
+                .execute();
+
+
+        System.out.println(response.getBody().get());
     }
 
     /* Fin de Escenario: crear y publicar un aviso correctamente ------------------------------- */
@@ -116,36 +152,30 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
 
     @Dado("un codigoAviso duplicado para dicho integrador")
     public void un_codigoAviso_duplicado_para_dicho_integrador() {
-        throw new PendingException();
     }
 
     @Entonces("la creacion del aviso falla por codigoAviso duplicado")
     public void la_creacion_del_aviso_falla_por_codigoAviso_duplicado() throws Exception {
-        throw new PendingException();
     }
 
     /* Fin de crear y publicar un aviso falla por duplicacion de codigoAviso ------------------ */
 
     @Dado("un formulario de aviso con sus campos requeridos completados erroneamente")
     public void un_formulario_de_aviso_con_sus_campos_requeridos_completados_erroneamente() throws IOException {
-        throw new PendingException();
     }
 
     @Entonces("la creacion del aviso falla por errores presentes en el formulario de aviso")
     public void la_creacion_del_aviso_falla_por_errores_presentes_en_el_formulario_de_aviso() throws Exception {
-        throw new PendingException();
     }
 
     /* Escenario: crear y publicar un aviso falla porque la empresa no tiene creditos suficientes para publicarlo */
 
     @Dado("que tiene creditos insuficientes para publicar avisos")
     public void que_tiene_creditos_insuficientes_para_publicar_avisos() {
-        throw new PendingException();
     }
 
     @Entonces("la publicacion del aviso falla por falta de creditos de la empresa")
     public void la_publicacion_del_aviso_falla_por_falta_de_creditos_de_la_empresa() throws Exception {
-        throw new PendingException();
     }
 
     /* fin de crear y publicar un aviso falla porque la empresa no tiene creditos suficientes para publicarlo */
@@ -154,12 +184,10 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
 
     @Dado("una empresa no habilitada para integrar")
     public void una_empresa_no_habilitada_para_integrar() {
-        throw new PendingException();
     }
 
     @Entonces("la creacion del aviso falla porque la empresa no esta habilitada para integrar")
     public void la_creacion_del_aviso_falla_porque_la_empresa_no_esta_habilitada_para_integrar() throws Exception {
-        throw new PendingException();
     }
 
     /* fin de crear y publicar un aviso falla porque la empresa no esta habilitada para integrar */
