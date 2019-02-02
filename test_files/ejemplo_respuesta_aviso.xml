@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Retorno>
+
+    <aviso>
+        <idPosicion>1</idPosicion>
+        <status>1</status>
+
+        <Aviso>Cajero /a Unico /a Eventual</Aviso>
+
+        <idAviso>1113073834</idAviso>
+
+    </aviso>
+
+</Retorno><!--
+ Server: jp-prod-web-bolsaplus-2
+ Tiempo de Dispatch:85 milis
+ RW: 10
+ RO: 2
+-->
