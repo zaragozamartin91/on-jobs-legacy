@@ -29,20 +29,20 @@ import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
 public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
-//    private static final String URL = "http://www.bumeran.com.ar/api/publicador/index.bum";
+    //    private static final String URL = "http://www.bumeran.com.ar/api/publicador/index.bum";
     private static final String URL = "https://www.bumeran.com.ar/api/publicador/index.bum";
 
     private static final XPath xpath = XPathFactory.newInstance().newXPath();
 
     // TODO : insertar id y token de empresa existente (SoftwareGZ)
-    private static final String OK_COMPANY_ID = "000001"; // id de empresa existente
-    private static final String OK_COMPANY_TOKEN = "h5yfg875djgyu78"; // token valido de empresa existente
+    private static final String OK_COMPANY_ID = "13130935"; // id de empresa existente
+    private static final String OK_COMPANY_TOKEN = "fe545e2f0b3439e"; // token valido de empresa existente
 
     // NOTA: LOS CATALOGOS SON ARCHIVOS!!!
     // TODO : insertar id de producto valido
     /* Este codigo se debe tomar del catalogo "IDPLANPUBLICACION" de acuerdo al tipo de membresia y pais contratado. */
     private static final String OK_PRODUCT_ID = "60";
-    public static final String CHARSET = "UTF-8";
+    private static final String CHARSET = "UTF-8";
 
     private String docToString(Document document) {
         try {
@@ -110,20 +110,25 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
 
     @Dado("que tiene creditos suficientes para publicar avisos")
     public void que_tiene_creditos_suficientes_para_publicar_avisos() {
-        Element productElement = getElement("/Avisos/aviso/idPlanPublicacion");
-        productElement.setTextContent(OK_PRODUCT_ID);
+        // TODO : POR AHORA NO SE PUBLICARA EL AVISO
+//        Element productElement = getElement("/Avisos/aviso/idPlanPublicacion");
+//        productElement.setTextContent(OK_PRODUCT_ID);
     }
 
 
     @Dado("un formulario de aviso con sus campos requeridos completados correctamente")
     public void un_formulario_de_aviso_con_sus_campos_requeridos_completados_correctamente() throws IOException, URISyntaxException {
-        // TODO : EDITAR CAMPOS DEL XML QUE DEBAN SER MODIFICADOS
+        getElement("/Avisos/aviso/txPuesto").setTextContent("Cajero /a Unico /a Eventual");
+
+        getElement("/Avisos/aviso/txDescripcion")
+                .setTextContent("<![CDATA[<p>Si te interesa formar parte de un equipo de trabajo agradable, te invitamos a integrarte a Empresa S.A.</p>]]>");
+
+        getElement("/Avisos/aviso/numCantidadVacantes").setTextContent("2");
     }
 
     @Dado("un codigoAviso unico para dicho integrador")
     public void un_codigoAviso_unico_para_dicho_integrador() {
         Element element = getElement("/Avisos/aviso/txCodigoReferencia");
-        // TODO : revisar si txCodigoReferencia es el codigo-aviso
         element.setTextContent("63797");
     }
 
