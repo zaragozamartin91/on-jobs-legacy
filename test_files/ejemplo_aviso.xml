@@ -2,6 +2,7 @@
 <Avisos>
     <aviso>
         <DatosAdicionales idPosicion="1" emp_idempresa="13130935" emp_token="fe545e2f0b3439e"/>
+        <txAccion>CREAR</txAccion>
         <txCodigoReferencia>Codigo de Referencia</txCodigoReferencia>
         <idPais>1</idPais>
         <idArea>23</idArea>
