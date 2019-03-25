@@ -14,6 +14,11 @@ import java.io.IOException;
 
 public class ParseXmlExample {
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, XPathExpressionException {
+        String path = "/hola/como/estas";
+        System.out.println( path.substring(0,path.lastIndexOf('/')) );
+
+        System.out.println( path.substring(path.lastIndexOf('/')) );
+
         File xmlFile = new File("test_files", "ejemplo_aviso.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
