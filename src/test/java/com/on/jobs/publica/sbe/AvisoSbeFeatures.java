@@ -21,7 +21,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
-public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
+public class AvisoSbeFeatures extends SpringIntegrationTest {
     //    private static final String URL = "http://www.bumeran.com.ar/api/publicador/index.bum";
     private static final String URL = "https://www.bumeran.com.ar/api/publicador/index.bum";
 
@@ -103,7 +103,6 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
 
     @Dado("que tiene creditos suficientes para publicar avisos")
     public void que_tiene_creditos_suficientes_para_publicar_avisos() {
-        // TODO : POR AHORA NO SE PUBLICARA EL AVISO
         String path = "/Avisos/aviso/idPlanPublicacion";
         Optional.ofNullable(getElement(path)).orElseGet(() -> createElement(path)).setTextContent(OK_PRODUCT_ID);
     }
