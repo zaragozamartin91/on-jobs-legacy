@@ -22,16 +22,9 @@ Característica: Modificar aviso
     Entonces la actualizacion del aviso falla porque el aviso no existe
 
   Escenario: modificar un aviso existente correctamente
-    Dado una empresa habilitada para integrar
+    Dado una empresa no habilitada para integrar
     Y que tiene creditos suficientes para publicar avisos
     Y un aviso existente
     Y un formulario de aviso con sus campos modificados
-    Entonces se actualiza el aviso correctamente
-
-#  Escenario: crear y publicar un aviso falla porque la empresa no esta habilitada para integrar
-#    Dado una empresa no habilitada para integrar
-#    Y que tiene creditos suficientes para publicar avisos
-#    Y un formulario de aviso con sus campos requeridos completados correctamente
-#    Y un codigoAviso unico para dicho integrador
-#    Entonces la creacion del aviso falla porque la empresa no esta habilitada para integrar
+    Entonces la modificacion del aviso falla por credenciales de empresa invalidas
 

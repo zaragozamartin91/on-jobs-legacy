@@ -121,6 +121,7 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
         getElement("/Avisos/aviso/txCodigoReferencia").setTextContent(AD_ALIAS);
     }
 
+    private static String publishedAdId;
 
     @Entonces("se crea y se publica el aviso")
     public void se_crea_y_se_publica_el_aviso() throws Exception {
@@ -137,6 +138,10 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
         Element statusElem = getElement("/Retorno/aviso/status", responseDoc);
         assertNotNull(statusElem);
         assertEquals(RESPONSE_OK_STATUS, statusElem.getTextContent());
+
+        Element adIdElem = getElement("/Retorno/aviso/idAviso" , responseDoc);
+        assertThat(adIdElem , is(not(nullValue())));
+        publishedAdId = adIdElem.getTextContent();
     }
 
     /* Fin de Escenario: crear y publicar un aviso correctamente ------------------------------- */
@@ -191,6 +196,11 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
     }
 
     /**
+     * Id de aviso guardado como borrador para usar en otro test
+     */
+    private static String draftAdId;
+
+    /**
      * Este test funciona parcialmente automatizado. Se debe verificar que el aviso fue publicado en modo borrador
      * visitando <a href="https://www.bumeran.com.ar/empresas/avisos">https://www.bumeran.com.ar/empresas/avisos</a>.
      */
@@ -208,6 +218,9 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
         assertNotNull(statusElem);
         assertEquals(RESPONSE_OK_STATUS, statusElem.getTextContent());
 
+        Element adIdElem = getElement("/Retorno/aviso/idAviso", responseDoc);
+        assertThat(adIdElem, is(not(nullValue())));
+        draftAdId = adIdElem.getTextContent().trim();
     }
 
     /* fin de crear y publicar un aviso falla porque la empresa no tiene creditos suficientes para publicarlo */
@@ -247,7 +260,9 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
     @Dado("un aviso existente")
     public void un_aviso_existente() {
         String path = "/Avisos/aviso/idAviso";
-        existingAdId = "1113192190";
+//        existingAdId = "1113192190";
+//        existingAdId = draftAdId;
+        existingAdId = publishedAdId;
         Optional.ofNullable(getElement(path))
                 .orElseGet(() -> createElement(path))
                 .setTextContent(existingAdId);
@@ -307,6 +322,19 @@ public class CrearYPublicarAvisoTest extends SpringIntegrationTest {
 
         Document doc = parseDocument(responseBody.get());
         assertThat(getElement("/Retorno/aviso/mensaje", doc).getTextContent(), containsString("VERIFIQUE LOS DATOS ENVIADOS"));
+        assertThat(getElement("/Retorno/aviso/status", doc).getTextContent(), is(RESPONSE_ERR_STATUS));
+    }
+
+    @Entonces("^la modificacion del aviso falla por credenciales de empresa invalidas$")
+    public void laModificacionDelAvisoFallaPorCredencialesDeEmpresaInvalidas() throws Throwable {
+        SimpleHttpResponse httpResponse = updateAd();
+        SimpleHttpBody responseBody = httpResponse.getBody();
+
+        assertThat(responseBody, is(not(nullValue())));
+        assertThat(responseBody.isPresent(), is(true));
+
+        Document doc = parseDocument(responseBody.get());
+        assertThat(getElement("/Retorno/aviso/mensaje", doc).getTextContent(), containsString("NI SE RECIBIO UN TOKEN VALIDO"));
         assertThat(getElement("/Retorno/aviso/status", doc).getTextContent(), is(RESPONSE_ERR_STATUS));
     }
 }

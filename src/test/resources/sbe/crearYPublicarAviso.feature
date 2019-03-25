@@ -1,11 +1,11 @@
 #language: es
 Característica: Crear y publicar aviso
-#  Escenario: crear y publicar un aviso correctamente
-#    Dado una empresa habilitada para integrar
-#    Y que tiene creditos suficientes para publicar avisos
-#    Y un formulario de aviso con sus campos requeridos completados correctamente
-#    Y un codigoAviso unico para dicho integrador
-#    Entonces se crea y se publica el aviso
+  Escenario: crear y publicar un aviso correctamente
+    Dado una empresa habilitada para integrar
+    Y que tiene creditos suficientes para publicar avisos
+    Y un formulario de aviso con sus campos requeridos completados correctamente
+    Y un codigoAviso unico para dicho integrador
+    Entonces se crea y se publica el aviso
 
   Escenario: crear y publicar un aviso falla por duplicacion de codigoAviso
     Dado una empresa habilitada para integrar
