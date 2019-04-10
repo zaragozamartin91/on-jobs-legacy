@@ -138,8 +138,8 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         assertNotNull(statusElem);
         assertEquals(RESPONSE_OK_STATUS, statusElem.getTextContent());
 
-        Element adIdElem = getElement("/Retorno/aviso/idAviso" , responseDoc);
-        assertThat(adIdElem , is(not(nullValue())));
+        Element adIdElem = getElement("/Retorno/aviso/idAviso", responseDoc);
+        assertThat(adIdElem, is(not(nullValue())));
         publishedAdId = adIdElem.getTextContent();
     }
 
@@ -336,4 +336,6 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         assertThat(getElement("/Retorno/aviso/mensaje", doc).getTextContent(), containsString("NI SE RECIBIO UN TOKEN VALIDO"));
         assertThat(getElement("/Retorno/aviso/status", doc).getTextContent(), is(RESPONSE_ERR_STATUS));
     }
+
+    @Y("^un aviso a modificar inexistente$") public void unAvisoAModificarInexistente() throws Throwable { unAvisoInexistente(); }
 }
