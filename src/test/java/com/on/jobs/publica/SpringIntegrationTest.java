@@ -48,8 +48,10 @@ public class SpringIntegrationTest {
 
     protected void newDocument() { this.document = buildDocument(); }
 
-    protected Document buildDocument() {
-        File xmlFile = new File("test_files", "ejemplo_aviso.xml");
+    protected Document buildDocument() {return buildDocument("ejemplo_aviso.xml");}
+
+    protected Document buildDocument(String fileName) {
+        File xmlFile = new File("test_files", fileName);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();

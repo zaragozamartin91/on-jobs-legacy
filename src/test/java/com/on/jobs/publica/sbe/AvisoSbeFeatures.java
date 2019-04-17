@@ -70,6 +70,11 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         return execute();
     }
 
+    private SimpleHttpResponse deleteAd() throws UnsupportedEncodingException {
+        getElement("/Avisos/aviso/txAccion").setTextContent("BORRAR");
+        return execute();
+    }
+
     private SimpleHttpResponse execute() throws UnsupportedEncodingException {
         String body = "XML=" + URLEncoder.encode(docToString(document), CHARSET);
 
@@ -338,4 +343,26 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
     }
 
     @Y("^un aviso a modificar inexistente$") public void unAvisoAModificarInexistente() throws Throwable { unAvisoInexistente(); }
+
+    @Entonces("^se elimina el aviso$")
+    public void seEliminaElAviso() throws Throwable {
+        SimpleHttpResponse httpResponse = deleteAd();
+
+        String responseBody = httpResponse.getBody().get();
+        System.out.println(responseBody);
+
+        Document responseDoc = parseDocument(responseBody);
+
+        Element adIdElem = getElement("/Retorno/aviso/idAviso", responseDoc);
+        assertThat(adIdElem, is(not(nullValue())));
+
+        assertThat(adIdElem.getTextContent().trim(), is(equalTo(
+                getElement("/Avisos/aviso/idAviso", document).getTextContent()
+        )));
+
+
+        Element statusElem = getElement("/Retorno/aviso/status", responseDoc);
+        assertNotNull(statusElem);
+        assertEquals(RESPONSE_OK_STATUS, statusElem.getTextContent());
+    }
 }
