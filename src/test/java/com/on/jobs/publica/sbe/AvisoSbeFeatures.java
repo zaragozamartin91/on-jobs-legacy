@@ -429,4 +429,21 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         Element msgElem = getElement("/Retorno/aviso/mensaje", responseDoc);
         assertThat(msgElem.getTextContent().toUpperCase(), containsString("VERIFIQUE LOS DATOS"));
     }
+
+    @Entonces("^la eliminacion del aviso falla porque la empresa no existe$")
+    public void laEliminacionDelAvisoFallaPorqueLaEmpresaNoExiste() throws Throwable {
+        SimpleHttpResponse httpResponse = deleteAd();
+
+        String responseBody = httpResponse.getBody().get();
+        System.out.println(responseBody);
+
+        Document responseDoc = parseDocument(responseBody);
+
+        Element statusElem = getElement("/Retorno/aviso/status", responseDoc);
+        assertThat(statusElem.getTextContent(), is(not(nullValue())));
+        assertThat(statusElem.getTextContent(), is(equalTo(RESPONSE_ERR_STATUS)));
+
+        Element msgElem = getElement("/Retorno/aviso/mensaje", responseDoc);
+        assertThat(msgElem.getTextContent().toUpperCase(), containsString("NI SE RECIBIO UN TOKEN VALIDO"));
+    }
 }

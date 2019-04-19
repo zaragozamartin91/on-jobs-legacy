@@ -20,3 +20,8 @@ Característica: Borrar un aviso
     Dado una empresa habilitada para integrar
     Y un aviso con id invalido
     Entonces la eliminacion del aviso falla porque el id es invalido
+
+  Escenario: borrar un aviso falla porque la empresa no existe
+    Dado una empresa no habilitada para integrar
+    Y un aviso existente
+    Entonces la eliminacion del aviso falla porque la empresa no existe
