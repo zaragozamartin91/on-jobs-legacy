@@ -346,6 +346,11 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
 
     @Entonces("^se elimina el aviso$")
     public void seEliminaElAviso() throws Throwable {
+        String adId = Optional.ofNullable(getElement("/Avisos/aviso/idAviso"))
+                .orElseThrow(() -> new IllegalStateException("El formulario de aviso no tiene un id"))
+                .getTextContent();
+        TestEnv.INSTANCE.put("deletedAdId", adId);
+
         SimpleHttpResponse httpResponse = deleteAd();
 
         String responseBody = httpResponse.getBody().get();
@@ -390,5 +395,14 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
 
         Element msgElem = getElement("/Retorno/aviso/mensaje", responseDoc);
         assertThat(msgElem.getTextContent().toLowerCase(), startsWith("no tiene permiso"));
+    }
+
+    @Y("^un aviso que ya fue borrado$")
+    public void unAvisoQueYaFueBorrado() throws Throwable {
+        existingAdId = (String) TestEnv.INSTANCE.get("deletedAdId");
+        String path = "/Avisos/aviso/idAviso";
+        Optional.ofNullable(getElement(path))
+                .orElseGet(() -> createElement(path))
+                .setTextContent(existingAdId);
     }
 }

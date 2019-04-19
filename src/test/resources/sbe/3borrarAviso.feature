@@ -1,5 +1,6 @@
 #language: es
 Característica: Borrar un aviso
+
   Escenario: borrar un aviso existente
     Dado una empresa habilitada para integrar
     Y un aviso existente
@@ -9,4 +10,10 @@ Característica: Borrar un aviso
     Dado una empresa habilitada para integrar
     Y un aviso que no corresponde con la empresa
     Entonces la eliminacion del aviso falla porque no le pertenece a la empresa
+
+  Escenario: borrar un aviso que ya fue borrado
+    Dado una empresa habilitada para integrar
+    Y un aviso que ya fue borrado
+    Entonces se elimina el aviso
+
 
