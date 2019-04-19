@@ -4,6 +4,7 @@ import com.mz.client.http.SimpleHttpBody;
 import com.mz.client.http.SimpleHttpClient;
 import com.mz.client.http.SimpleHttpResponse;
 import com.on.jobs.publica.SpringIntegrationTest;
+import com.on.jobs.publica.TestEnv;
 import cucumber.api.PendingException;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -125,8 +126,6 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         getElement("/Avisos/aviso/txCodigoReferencia").setTextContent(AD_ALIAS);
     }
 
-    private static String publishedAdId;
-
     @Entonces("se crea y se publica el aviso")
     public void se_crea_y_se_publica_el_aviso() throws Exception {
         SimpleHttpResponse response = createAd();
@@ -145,7 +144,8 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
 
         Element adIdElem = getElement("/Retorno/aviso/idAviso", responseDoc);
         assertThat(adIdElem, is(not(nullValue())));
-        publishedAdId = adIdElem.getTextContent();
+
+        TestEnv.INSTANCE.put("publishedAdId", adIdElem.getTextContent());
     }
 
     /* Fin de Escenario: crear y publicar un aviso correctamente ------------------------------- */
@@ -266,7 +266,7 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         String path = "/Avisos/aviso/idAviso";
 //        existingAdId = "1113192190";
 //        existingAdId = draftAdId;
-        existingAdId = publishedAdId;
+        existingAdId = (String) TestEnv.INSTANCE.get("publishedAdId");
         Optional.ofNullable(getElement(path))
                 .orElseGet(() -> createElement(path))
                 .setTextContent(existingAdId);
@@ -364,5 +364,31 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         Element statusElem = getElement("/Retorno/aviso/status", responseDoc);
         assertNotNull(statusElem);
         assertEquals(RESPONSE_OK_STATUS, statusElem.getTextContent());
+    }
+
+    @Y("^un aviso que no corresponde con la empresa$")
+    public void unAvisoQueNoCorrespondeConLaEmpresa() throws Throwable {
+        existingAdId = "1000041824";
+        String path = "/Avisos/aviso/idAviso";
+        Optional.ofNullable(getElement(path))
+                .orElseGet(() -> createElement(path))
+                .setTextContent(existingAdId);
+    }
+
+    @Entonces("^la eliminacion del aviso falla porque no le pertenece a la empresa$")
+    public void laEliminacionDelAvisoFallaPorqueNoLePerteneceALaEmpresa() throws Throwable {
+        SimpleHttpResponse httpResponse = deleteAd();
+
+        String responseBody = httpResponse.getBody().get();
+        System.out.println(responseBody);
+
+        Document responseDoc = parseDocument(responseBody);
+
+        Element statusElem = getElement("/Retorno/aviso/status", responseDoc);
+        assertThat(statusElem.getTextContent(), is(not(nullValue())));
+        assertThat(statusElem.getTextContent(), is(equalTo(RESPONSE_ERR_STATUS)));
+
+        Element msgElem = getElement("/Retorno/aviso/mensaje", responseDoc);
+        assertThat(msgElem.getTextContent().toLowerCase(), startsWith("no tiene permiso"));
     }
 }

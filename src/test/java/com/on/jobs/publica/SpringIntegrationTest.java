@@ -28,8 +28,9 @@ import java.util.regex.Pattern;
 @ContextConfiguration
 @ActiveProfiles(value = "test")
 public class SpringIntegrationTest {
-    protected static final XPath XPATH = XPathFactory.newInstance().newXPath();
+    static { TestEnv.INSTANCE.put("test","shit"); }
 
+    protected static final XPath XPATH = XPathFactory.newInstance().newXPath();
     protected Document document;
 
     protected String docToString(Document document) {
