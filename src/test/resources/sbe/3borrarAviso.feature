@@ -16,4 +16,7 @@ Característica: Borrar un aviso
     Y un aviso que ya fue borrado
     Entonces se elimina el aviso
 
-
+  Escenario: borrar un aviso con id invalido falla
+    Dado una empresa habilitada para integrar
+    Y un aviso con id invalido
+    Entonces la eliminacion del aviso falla porque el id es invalido

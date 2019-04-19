@@ -405,4 +405,28 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
                 .orElseGet(() -> createElement(path))
                 .setTextContent(existingAdId);
     }
+
+    @Y("^un aviso con id invalido$")
+    public void unAvisoConIdInvalido() throws Throwable {
+        Optional.ofNullable(getElement("/Avisos/aviso/idAviso"))
+                .orElseGet(() -> createElement("/Avisos/aviso/idAviso"))
+                .setTextContent("-1");
+    }
+
+    @Entonces("^la eliminacion del aviso falla porque el id es invalido$")
+    public void laEliminacionDelAvisoFallaPorqueElIdEsInvalido() throws Throwable {
+        SimpleHttpResponse httpResponse = deleteAd();
+
+        String responseBody = httpResponse.getBody().get();
+        System.out.println(responseBody);
+
+        Document responseDoc = parseDocument(responseBody);
+
+        Element statusElem = getElement("/Retorno/aviso/status", responseDoc);
+        assertThat(statusElem.getTextContent(), is(not(nullValue())));
+        assertThat(statusElem.getTextContent(), is(equalTo(RESPONSE_ERR_STATUS)));
+
+        Element msgElem = getElement("/Retorno/aviso/mensaje", responseDoc);
+        assertThat(msgElem.getTextContent().toUpperCase(), containsString("VERIFIQUE LOS DATOS"));
+    }
 }
