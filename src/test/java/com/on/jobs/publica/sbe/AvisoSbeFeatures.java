@@ -446,4 +446,33 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         Element msgElem = getElement("/Retorno/aviso/mensaje", responseDoc);
         assertThat(msgElem.getTextContent().toUpperCase(), containsString("NI SE RECIBIO UN TOKEN VALIDO"));
     }
+
+    String nonexistentAd = (String) TestEnv.INSTANCE.get("publishedAdId");
+
+    @Y("un aviso con que no existe")
+    public void unAvisoConQueNoExiste() {
+        String path = "/Avisos/aviso/idAviso";
+        /* Tomo el id del aviso creado y publicado. Le agrego 100 para obtener un id de aviso que no puede existir */
+        String adId = (String) TestEnv.INSTANCE.get("publishedAdId");
+        nonexistentAd = (Long.valueOf(adId) + 100) + "";
+        Optional.ofNullable(getElement(path))
+                .orElseGet(() -> createElement(path))
+                .setTextContent(nonexistentAd);
+    }
+
+    @Entonces("la eliminacion del aviso falla porque el aviso no existe")
+    public void laEliminacionDelAvisoFallaPorqueElAvisoNoExiste() throws UnsupportedEncodingException {
+        SimpleHttpResponse httpResponse = deleteAd();
+
+        String responseBody = httpResponse.getBody().get();
+        Document responseDoc = parseDocument(responseBody);
+
+        Element statusElem = getElement("/Retorno/aviso/status", responseDoc);
+        assertThat(statusElem.getTextContent(), is(not(nullValue())));
+        assertThat(statusElem.getTextContent(), is(equalTo(RESPONSE_ERR_STATUS)));
+
+        Element msgElem = getElement("/Retorno/aviso/mensaje", responseDoc);
+        assertThat(msgElem.getTextContent().toUpperCase(), containsString("OCURRIO UN ERROR"));
+        assertThat(msgElem.getTextContent().toUpperCase(), containsString("VERIFIQUE LOS DATOS"));
+    }
 }
