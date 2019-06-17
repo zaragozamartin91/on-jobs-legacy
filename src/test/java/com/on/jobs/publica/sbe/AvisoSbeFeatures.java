@@ -264,8 +264,6 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
     @Dado("un aviso existente")
     public void un_aviso_existente() {
         String path = "/Avisos/aviso/idAviso";
-//        existingAdId = "1113192190";
-//        existingAdId = draftAdId;
         existingAdId = (String) TestEnv.INSTANCE.get("publishedAdId");
         Optional.ofNullable(getElement(path))
                 .orElseGet(() -> createElement(path))
@@ -447,14 +445,12 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         assertThat(msgElem.getTextContent().toUpperCase(), containsString("NI SE RECIBIO UN TOKEN VALIDO"));
     }
 
-    String nonexistentAd = (String) TestEnv.INSTANCE.get("publishedAdId");
-
     @Y("un aviso con que no existe")
     public void unAvisoConQueNoExiste() {
         String path = "/Avisos/aviso/idAviso";
         /* Tomo el id del aviso creado y publicado. Le agrego 100 para obtener un id de aviso que no puede existir */
         String adId = (String) TestEnv.INSTANCE.get("publishedAdId");
-        nonexistentAd = (Long.valueOf(adId) + 100) + "";
+        String nonexistentAd = (Long.valueOf(adId) + 100) + "";
         Optional.ofNullable(getElement(path))
                 .orElseGet(() -> createElement(path))
                 .setTextContent(nonexistentAd);
