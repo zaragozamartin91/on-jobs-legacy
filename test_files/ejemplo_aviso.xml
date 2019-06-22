@@ -10,5 +10,7 @@
         <idIndustria>8</idIndustria>
         <txDescripcion>Descripcion</txDescripcion>
         <numCantidadVacantes>2</numCantidadVacantes>
+        <minSalario>1000</minSalario>
+        <maxSalario>15000</maxSalario>
     </aviso>
 </Avisos>

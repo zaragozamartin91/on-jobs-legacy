@@ -35,18 +35,22 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
      * txPuesto
      */
 //    private static final String TXP_TEXT = "Cajero /a Unico /a Eventual";
-    private static final String TXP_TEXT = "Cajero reloco";
-    private static final String TXP_TEXT_MODIF = "Cajero ligeramente capacitado";
+    private static final String TXP_TEXT = "Cajero";
+    private static final String TXP_TEXT_MODIF = "Cajero con conocimientos en excel";
     /**
      * txDescripcion
      */
-    private static final String TXD_TEXT = "<![CDATA[<p>Si te interesa formar parte de un equipo de trabajo agradable, te invitamos a integrarte a Empresa S.A.</p>]]>";
-    private static final String TXD_TEXT_MODIF = "<![CDATA[<p>Esta descripcion fue modificada.</p>]]>";
+    private static final String TXD_TEXT = "Si te interesa formar parte de un equipo de trabajo agradable, te invitamos a integrarte a Empresa S.A.";
+    private static final String TXD_TEXT_MODIF = "Si acaso estas interesado en formar parte de un excelente equipo de trabajo, te invitamos a unirte a Empresa S.A.";
+
     /**
      * numCantidadVacantes
      */
     private static final String NCV_TEXT = "2";
     private static final String NCV_TEXT_MODIF = "1";
+
+    private static final String MINSAL_TEXT_MODIF = "1100";
+    private static final String MAXSAL_TEXT_MODIF = "16001";
 
 
     /* Este codigo se debe tomar del catalogo "IDPLANPUBLICACION" de acuerdo al tipo de membresia y pais contratado. */
@@ -275,6 +279,8 @@ public class AvisoSbeFeatures extends SpringIntegrationTest {
         getElement("/Avisos/aviso/txPuesto").setTextContent(TXP_TEXT_MODIF);
         getElement("/Avisos/aviso/txDescripcion").setTextContent(TXD_TEXT_MODIF);
         getElement("/Avisos/aviso/numCantidadVacantes").setTextContent(NCV_TEXT_MODIF);
+        getElement("/Avisos/aviso/minSalario").setTextContent(MINSAL_TEXT_MODIF);
+        getElement("/Avisos/aviso/maxSalario").setTextContent(MAXSAL_TEXT_MODIF);
     }
 
     @Entonces("se actualiza el aviso correctamente")
